@@ -1,0 +1,51 @@
+/* src/pages/Login.css */
+body, html {
+    height: 100%; /* Aseguramos que el body y html ocupen toda la altura de la ventana */
+    margin: 0; /* Eliminamos márgenes predeterminados */
+}
+
+.container {
+    display: flex; /* Usamos flexbox */
+    flex-direction: column; /* Alineamos los elementos en columna */
+    justify-content: center; /* Centrado vertical */
+    align-items: center; /* Centrado horizontal */
+    height: 40vh; /* Altura completa de la ventana */
+    padding: 20px;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
