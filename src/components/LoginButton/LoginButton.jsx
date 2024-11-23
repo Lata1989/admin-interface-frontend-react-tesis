@@ -1,34 +1,46 @@
 // src/components/LoginButton.js
 import React from 'react';
 import './LoginButton.css';
+import axios from 'axios'; // Asegúrate de que axios esté instalado y disponible
 
 export const LoginButton = ({ email, password, setLoggedIn, navigate }) => {
     const handleLogin = async () => {
-        // Establecemos el rol fijo como "admin"
         const body = {
             email,
             password,
-            rol: 'admin'
+            rol: 'admin' // Rol fijo como "admin"
         };
 
-        // Simulamos la autenticación en el backend
-        if (email && password) {
-            // Aquí enviarías la solicitud al backend y verificarías el login
-            // const response = await apiLogin(body);
+        try {
+            // Llamada al backend para autenticar al usuario
+            const response = await axios.post('http://localhost:5000/auth/login', body);
             
-            // Simulamos respuesta exitosa
-            const success = true;  // Cambiar esto a la respuesta del backend
-
-            if (success) {
-                // Guardar token y setear estado de login
-                localStorage.setItem('token', 'mi-token-simulado');
+            // Si la autenticación es exitosa
+            if (response.status === 200) {
+                const { token } = response.data;
+                
+                // Guardar el token en localStorage
+                localStorage.setItem('token', token);
+                
+                // Establecer el estado de login
                 setLoggedIn(true);
+                
+                // Navegar a la página de clientes
                 navigate('/clientes');
             } else {
-                alert('Login fallido. Verifique sus credenciales.');
+                // Manejar el caso en que el backend responda con algo inesperado
+                alert('Login fallido. Respuesta inesperada del servidor.');
             }
-        } else {
-            alert('Por favor ingrese todos los campos.');
+        } catch (error) {
+            // Manejo de errores
+            if (error.response) {
+                // Errores del servidor (códigos 4xx o 5xx)
+                alert(`Error al iniciar sesión: ${error.response.data.message || 'Error desconocido'}`);
+            } else {
+                // Errores de red u otros
+                console.error('Error al conectar con el servidor:', error.message);
+                alert('No se pudo conectar con el servidor.');
+            }
         }
     };
 
