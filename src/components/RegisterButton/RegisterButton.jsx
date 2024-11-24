@@ -1,9 +1,11 @@
-// src/components/RegisterButton.js
+// src/components/RegisterButton/RegisterButton.js
 import React from 'react';
 import './RegisterButton.css';
 
-export const RegisterButton = ({ handleRegister }) => {
+export const RegisterButton = () => {
     return (
-        <button onClick={handleRegister}>Registrar</button>
+        <button type="submit" className="register-button">
+            Registrarse
+        </button>
     );
 };

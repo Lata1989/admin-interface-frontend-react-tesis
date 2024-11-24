@@ -1,57 +1,47 @@
-/* Contenedor principal */
-.container {
-    width: 80%;
-    max-width: 500px; /* Limita el ancho máximo del formulario */
-    margin: 10rem auto; /* Centra vertical y horizontalmente */
+.page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
     padding: 20px;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+}
+
+.contenedor {
+    width: 100%; /* Cambié de 25% a 100% para que ocupe el ancho completo en pantallas pequeñas */
+    max-width: 600px; /* Limita el tamaño máximo para pantallas grandes */
+    margin: auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.register-form {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra los elementos en el eje horizontal */
-    justify-content: center; /* Centra los elementos en el eje vertical */
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    gap: 15px;
 }
 
-/* Títulos y textos */
-h1 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
-}
-
-/* Inputs del formulario */
-input, select {
-    width: 100%; /* Asegura que todos los inputs ocupen el mismo ancho */
-    padding: 10px;
-    margin: 10px 0; /* Separación vertical entre inputs */
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box; /* Incluye el padding y borde en el ancho */
-}
-
-/* Botón de registro */
-button {
-    width: 100%; /* Ancho completo del botón */
-    padding: 10px;
-    margin-top: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-/* Enlace para login */
 .login-link {
     margin-top: 20px;
     text-align: center;
-    font-size: 14px;
 }
 
 .login-link a {
@@ -61,4 +51,49 @@ button:hover {
 
 .login-link a:hover {
     text-decoration: underline;
+}
+
+/* Asegura que todos los inputs y selects tengan el mismo ancho y estilo */
+.register-form input, .register-form select {
+    width: 100%; /* Hace que todos los inputs y selects ocupen el mismo ancho */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Asegura que el select se vea igual de bien que los inputs */
+.register-form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    .contenedor {
+        width: 80%; /* En pantallas pequeñas, el formulario ocupa un 80% del ancho */
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Ajusta el tamaño del título en pantallas más pequeñas */
+    }
+}
+
+/* Media Queries para pantallas extra pequeñas */
+@media (max-width: 480px) {
+    .contenedor {
+        width: 90%; /* En pantallas muy pequeñas, el formulario ocupa un 90% del ancho */
+    }
+
+    h1 {
+        font-size: 1.2rem; /* Ajusta el tamaño del título aún más en pantallas muy pequeñas */
+    }
+
+    .login-link {
+        font-size: 0.8rem; /* Reduce el tamaño del enlace para que sea más pequeño en pantallas pequeñas */
+    }
 }

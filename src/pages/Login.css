@@ -1,35 +1,43 @@
-/* src/pages/Login.css */
+/* Aseguramos que el body y html ocupen toda la altura de la ventana */
 body, html {
-    height: 100%; /* Aseguramos que el body y html ocupen toda la altura de la ventana */
+    height: 100%; /* Asegura que el body y html ocupen toda la altura de la ventana */
     margin: 0; /* Eliminamos márgenes predeterminados */
+    display: flex; /* Usamos flexbox para centrar */
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
 }
 
 .container {
-    display: flex; /* Usamos flexbox */
+    display: flex;
     flex-direction: column; /* Alineamos los elementos en columna */
     justify-content: center; /* Centrado vertical */
     align-items: center; /* Centrado horizontal */
-    height: 40vh; /* Altura completa de la ventana */
+    width: 100%;
+    max-width: 400px; /* Establecemos un ancho máximo para que no se estire demasiado */
     padding: 20px;
     text-align: center;
+    box-sizing: border-box; /* Asegura que el padding se incluya en el cálculo del ancho */
 }
 
 input {
-    width: 100%;
+    width: 100%; /* Hace que los inputs ocupen el 100% del ancho disponible */
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box; /* Asegura que el padding se incluya en el cálculo del ancho */
 }
 
 button {
-    width: 100%;
-    padding: 10px;
+    width: 100%; /* Asegura que el botón ocupe el 100% del ancho disponible */
+    padding: 10px; /* Mismo padding que los inputs */
+    margin: 10px 0; /* Separación vertical entre el botón y otros elementos */
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    box-sizing: border-box; /* Asegura que el padding se incluya en el cálculo del ancho */
 }
 
 button:hover {
